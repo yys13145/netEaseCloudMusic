@@ -8,3 +8,11 @@ function remResize(){
     }
     document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px';
 }
+
+export default function remSet(){
+    remResize();
+    console.log("rem已应用！")
+    window.onresize = function(){
+        remResize();
+    }
+}

@@ -1,30 +1,68 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view/>
 </template>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.icon{
+  font-size: 0.3rem;
+}
+// 阿里图标css文件
+@font-face {
+  font-family: "iconfont"; /* Project id 3254442 */
+  src: url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.woff2?t=1647499538952') format('woff2'),
+       url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.woff?t=1647499538952') format('woff'),
+       url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.ttf?t=1647499538952') format('truetype');
 }
 
-#nav {
-  padding: 30px;
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.icon-liebiao:before {
+  content: "\e600";
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.icon-sousuo:before {
+  content: "\e62f";
+}
+
+.icon-tuijian1:before {
+  content: "\e680";
+}
+
+.icon-danlieliebiao:before {
+  content: "\e6e4";
+}
+
+.icon-bofang:before {
+  content: "\e624";
+}
+
+.icon-zanting:before {
+  content: "\e629";
+}
+
+.icon-gedan:before {
+  content: "\e66a";
+}
+
+.icon-paihangbang:before {
+  content: "\e8b3";
+}
+
+.icon-paihangbang1:before {
+  content: "\e63b";
+}
+
+.icon-paihangbang2:before {
+  content: "\e6dd";
+}
+
+.icon-tuijian:before {
+  content: "\ff87";
 }
 </style>
