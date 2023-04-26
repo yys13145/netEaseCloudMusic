@@ -1,15 +1,15 @@
 <template>
-  <i class="iconfont icon-tuijian1"></i>
+  <top-nav></top-nav>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import topNav from '@/components/topNav.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    topNav
   }
 }
 </script>

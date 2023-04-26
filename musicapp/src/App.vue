@@ -3,8 +3,11 @@
 </template>
 
 <style lang="less">
-.icon{
-  font-size: 0.3rem;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "微软雅黑";
 }
 // 阿里图标css文件
 @font-face {
@@ -16,7 +19,6 @@
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
