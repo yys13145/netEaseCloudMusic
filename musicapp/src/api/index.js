@@ -10,3 +10,8 @@ export function getBanner(type=1){
 export function getMusicList(limit=10){
     return axios.get(`${baseUrl}/personalized?limit=${limit}`) 
 }
+
+// 获取歌单详情
+export function getMusicDetail(id){
+    return axios.get(`${baseUrl}/playlist/detail?id=${id}`) 
+}

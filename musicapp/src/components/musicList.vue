@@ -11,12 +11,14 @@
                 :autoplay="{ autoplay: true }"
                 loop>
                 <swiper-slide class="swiper-slide" v-for="(item,index) in imgsList" :key="index">
-                    <img :src="item.picUrl" alt="">
-                    <div class="name">{{item.name}}</div>
-                    <div class="count">
-                        <i class="iconfont icon-bofang"></i>
-                        {{changeValue(item.playCount)}}
+                    <router-link :to="{path:'/listview',query:{id:item.id}}" >
+                        <img :src="item.picUrl" alt="">
+                        <div class="name">{{item.name}}</div>
+                        <div class="count">
+                            <i class="iconfont icon-bofang"></i>
+                            {{changeValue(item.playCount)}}
                         </div>
+                    </router-link>   
                 </swiper-slide>
             </swiper>
         </div>
@@ -115,5 +117,9 @@ export default{
             }
         }
     }
+}
+a{
+    color: #ccc;
+    text-decoration: none;
 }
 </style>
