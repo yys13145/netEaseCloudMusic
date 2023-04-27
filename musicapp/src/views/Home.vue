@@ -9,14 +9,15 @@
         <swiper-slide v-for="(item,index) in imgs" :key="index">
           <img :src="item.imageUrl" alt="">{{imgs.length}}
         </swiper-slide>
-        
     </swiper>
+    <icon-list></icon-list>
   </div> 
 </template>
 
 <script>
 // @ is an alias to /src
 import topNav from '@/components/topNav.vue'
+import iconList from '@/components/iconList.vue'
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -38,6 +39,7 @@ export default {
   name: 'Home',
   components: {
     topNav,
+    iconList,
     Swiper,
     SwiperSlide
   },
