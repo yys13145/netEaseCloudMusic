@@ -23,7 +23,7 @@
 .iconList{
     display: flex;
     justify-content: space-around;
-    padding: 0.4rem;
+    padding: 0.4rem 0;
     .iconItem{
         display: flex;
         flex-direction: column;

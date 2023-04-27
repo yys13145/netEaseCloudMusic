@@ -12,7 +12,6 @@ function remResize(){
 
 export default function remSet(){
     remResize();
-    console.log("rem已应用！")
     window.onresize = function(){
         remResize();
     }

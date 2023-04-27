@@ -5,12 +5,12 @@
         :pagination="{ clickable: true }"
         :autoplay="{ autoplay: true }"
         loop>
-        <!-- <swiper-slide><img src="@/assets/banner.png" alt="">{{imgs.length}}</swiper-slide> -->
         <swiper-slide v-for="(item,index) in imgs" :key="index">
-          <img :src="item.imageUrl" alt="">{{imgs.length}}
+          <img :src="item.pic" alt="">{{imgs.length}}
         </swiper-slide>
     </swiper>
     <icon-list></icon-list>
+    <music-list></music-list>
   </div> 
 </template>
 
@@ -18,6 +18,7 @@
 // @ is an alias to /src
 import topNav from '@/components/topNav.vue'
 import iconList from '@/components/iconList.vue'
+import musicList from '@/components/musicList.vue'
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -40,6 +41,7 @@ export default {
   components: {
     topNav,
     iconList,
+    musicList,
     Swiper,
     SwiperSlide
   },
