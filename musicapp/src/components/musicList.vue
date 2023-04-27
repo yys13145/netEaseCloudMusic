@@ -27,6 +27,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.css";
 
+import { reactive,onMounted } from 'vue'
 import { getMusicList } from '@/api/index'
 
 import SwiperCore, {
@@ -37,36 +38,39 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay])
+ 
+export default{
+    name: 'musicList',
+    components: {
+        Swiper,
+        SwiperSlide
+    },
+    setup(){
+        let imgsList = reactive([]);
 
-export default {
-  name: 'musicList',
-  components: {
-    Swiper,
-    SwiperSlide
-  },
-  data(){
-    return{
-      imgsList:[]
-    }
-  },
-  methods:{
-    changeValue(num){
-        let result = num;
-        if(num>100000000){
-            result = (num/100000000).toFixed(2) + '亿'
-        }else if(num>10000){
-            result = (num/10000).toFixed(2) + '万'
+        let changeValue = (num) => {
+            let result = num;
+            if(num>100000000){
+                result = (num/100000000).toFixed(2) + '亿'
+            }else if(num>10000){
+                result = (num/10000).toFixed(2) + '万'
+            }
+
+            return result
         }
-
-        return result
+        
+        onMounted(async()=>{
+            let res = await getMusicList();
+            imgsList = imgsList.push(...res.data.result);
+        })
+        return{
+           imgsList,
+           changeValue
+        }
     }
-  },
-  async mounted(){
-    let res = await getMusicList();
-    this.imgsList = res.data.result;
-  }
 }
 </script>
+
 <style lang="less" scoped>
 .musicList{
     width: 7.5rem;
