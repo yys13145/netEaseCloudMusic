@@ -10,11 +10,12 @@
   font-family: "微软雅黑";
 }
 // 阿里图标css文件
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-  font-family: "iconfont"; /* Project id 3254442 */
-  src: url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.woff2?t=1647499538952') format('woff2'),
-       url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.woff?t=1647499538952') format('woff'),
-       url('//at.alicdn.com/t/font_3254442_cm42nuy2fcm.ttf?t=1647499538952') format('truetype');
+  font-family: 'iconfont';  /* Project id 3254442 */
+  src: url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.woff2?t=1683613717360') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.woff?t=1683613717360') format('woff'),
+       url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.ttf?t=1683613717360') format('truetype');
 }
 
 .iconfont {
@@ -66,5 +67,9 @@
 
 .icon-tuijian:before {
   content: "\ff87";
+}
+
+.icon-zuojiantou:before {
+  content: "\e625";
 }
 </style>
