@@ -13,9 +13,9 @@
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
   font-family: 'iconfont';  /* Project id 3254442 */
-  src: url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.woff2?t=1683613717360') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.woff?t=1683613717360') format('woff'),
-       url('//at.alicdn.com/t/c/font_3254442_g180o0tdc5g.ttf?t=1683613717360') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3254442_j0i71seylq.woff2?t=1683709749327') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3254442_j0i71seylq.woff?t=1683709749327') format('woff'),
+       url('//at.alicdn.com/t/c/font_3254442_j0i71seylq.ttf?t=1683709749327') format('truetype');
 }
 
 .iconfont {
@@ -71,5 +71,21 @@
 
 .icon-zuojiantou:before {
   content: "\e625";
+}
+
+.icon-pinglun:before {
+  content: "\e607";
+}
+
+.icon-fenxiang:before {
+  content: "\eb24";
+}
+
+.icon-xiazai:before {
+  content: "\e856";
+}
+
+.icon-show_duoxuan:before {
+  content: "\e601";
 }
 </style>

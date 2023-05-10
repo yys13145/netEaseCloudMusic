@@ -2,7 +2,7 @@
     <div class="listViewTop">
         <img class="bg" :src="playlist.coverImgUrl" />
         <div class="listViewTopNav">
-            <div class="back">
+            <div class="back" @click="$router.back()">
                 <i class="iconfont icon-zuojiantou"></i>
                 <div class="title">歌单</div>
             </div> 
@@ -21,12 +21,31 @@
                 </div>
             </div>
             <div class="contentRight">
-                <h3>{{ playlist.name }}}</h3>
+                <h3>{{ playlist.name }}</h3>
                 <div class="author">
                     <img class="header" :src="playlist.creator.avatarUrl" />
                     <span>{{ playlist.creator.nickname }}</span> 
                 </div>
                 <div class="description">{{ playlist.description }}</div>
+            </div>
+        </div>
+
+        <div class="iconList">
+            <div class="iconItem">
+                <i class="iconfont icon-pinglun"></i>
+                <span>{{ playlist.commentCount }}</span> 
+            </div>
+            <div class="iconItem">
+                <i class="iconfont icon-fenxiang"></i>
+                <span>{{ playlist.shareCount }}</span> 
+            </div>
+            <div class="iconItem">
+                <i class="iconfont icon-xiazai"></i>
+                <span>下载</span> 
+            </div>
+            <div class="iconItem">
+                <i class="iconfont icon-show_duoxuan"></i>
+                <span>分享</span> 
             </div>
         </div>
     </div> 
@@ -137,6 +156,24 @@ export default {
                     -webkit-box-orient: vertical;
                 }
             }
+    }
+    .iconList{
+        display: flex;
+        justify-content: space-around;
+        .iconItem{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            .iconfont{
+                font-size: 32px;
+                color: #fff;
+            }
+            span{
+                font-size: 0.28rem;
+                padding-top: 0.1rem;
+            }
         }
+    }
 }
 </style>
