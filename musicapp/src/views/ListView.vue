@@ -15,7 +15,9 @@ export default {
     setup(){
         let state = reactive({
             list:[],
-            playlist:{}
+            playlist:{
+                creator:{}
+            }
         });
         const route = useRoute();
         onMounted(async()=>{
