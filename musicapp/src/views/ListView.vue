@@ -1,12 +1,14 @@
 <template>
     <div class="listView">
         <listview-top :playlist="state.playlist"></listview-top>
+        <play-list :playlist="state.playlist"></play-list>
     </div> 
 </template>
 
 <script>
 
 import listviewTop from '@/components/listviewTop.vue'
+import playList from '@/components/playList.vue'
 import { reactive,onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getMusicDetail } from '@/api/index'
@@ -16,7 +18,8 @@ export default {
         let state = reactive({
             list:[],
             playlist:{
-                creator:{}
+                creator:{},
+                tracks:[]
             }
         });
         const route = useRoute();
@@ -31,7 +34,8 @@ export default {
         }
     },
     components:{
-        listviewTop
+        listviewTop,
+        playList
     }
 }
 </script>
