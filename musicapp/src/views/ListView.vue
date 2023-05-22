@@ -12,6 +12,7 @@ import playList from '@/components/playList.vue'
 import { reactive,onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getMusicDetail } from '@/api/index'
+import store from '@/store/index.js'
 
 export default {
     setup(){
@@ -27,6 +28,7 @@ export default {
             let id = route.query.id; 
             let res = await getMusicDetail(id);
             console.log(res);
+            store.commit('setPlaylist',res.data.playlist.tracks)
             state.playlist = res.data.playlist;
         });
         return {

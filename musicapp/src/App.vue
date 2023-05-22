@@ -1,7 +1,19 @@
 <template>
-  <router-view/>
+  <div>
+    <router-view/>
+    <play-controller></play-controller>
+  </div>
 </template>
 
+<script>
+import playController from './components/playController.vue'
+export default{
+  components:{
+    playController
+  }
+}
+</script>
+ 
 <style lang="less">
 *{
   margin: 0;
@@ -12,9 +24,9 @@
 /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
   font-family: 'iconfont';  /* Project id 3254442 */
-  src: url('//at.alicdn.com/t/c/font_3254442_wqv83bhrj8.woff2?t=1684388969127') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3254442_wqv83bhrj8.woff?t=1684388969127') format('woff'),
-       url('//at.alicdn.com/t/c/font_3254442_wqv83bhrj8.ttf?t=1684388969127') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.woff2?t=1684737012830') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.woff?t=1684737012830') format('woff'),
+       url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.ttf?t=1684737012830') format('truetype');
 }
 
 .iconfont {
@@ -90,5 +102,9 @@
 
 .icon-androidgengduo:before {
   content: "\e78d";
+}
+
+.icon-24gl-playlistHeart:before {
+  content: "\ea6f";
 }
 </style>
