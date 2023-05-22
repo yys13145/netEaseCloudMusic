@@ -8,9 +8,11 @@
             </div>
         </div>
         <div class="right">
-            <i class="iconfont icon-bofang"></i>
+            <i  v-show="pause" class="iconfont icon-bofang" @click="play"></i>
+            <i  v-show="!pause"  class="iconfont icon-zanting" @click="play"></i>
             <i class="iconfont icon-24gl-playlistHeart"></i>
         </div>
+        <audio ref="audio" :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"></audio>
     </div>
 </template>
 
@@ -20,6 +22,22 @@ import { mapState,mapMutations } from 'vuex'
 export default{
     computed:{
         ...mapState(['playlist','playCurrentIndex'])
+    },
+    data(){
+        return{
+            pause: true
+        }
+    },
+    methods:{
+        play(){
+            if(this.$refs.audio.paused){
+                this.$refs.audio.play();
+                this.pause = false;
+            }else{
+                this.$refs.audio.pause();
+                this.pause = true;
+            }
+        }
     }
 }
 </script>
