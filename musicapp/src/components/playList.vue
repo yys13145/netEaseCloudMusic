@@ -24,7 +24,7 @@
                     </div> 
                 </div>
                 <div class="right">
-                    <i class="iconfont icon-bofang"></i>
+                    <i class="iconfont icon-bofang" @click="setPlayCurrentIndex(index)"></i>
                     <i class="iconfont icon-androidgengduo"></i>
                 </div>
             </div>
@@ -33,11 +33,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
     props:['playlist'],
-    setup(props){
-        console.log(props)
-        let changeValue = (num) => {
+    methods:{
+        changeValue(num){
             let result = num;
             if(num>100000000){
                 result = (num/100000000).toFixed(2) + '亿'
@@ -46,12 +47,9 @@ export default {
             }
 
             return result
-        }
-        
-        return{
-           changeValue
-        }
-    }
+        },
+        ...mapMutations(['setPlayCurrentIndex'])    
+    },    
 }
 </script>
 
