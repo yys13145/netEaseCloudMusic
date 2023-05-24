@@ -1,6 +1,6 @@
 <template>
     <div class="playController">
-        <div class="left">
+        <div class="left" @click="showPlay = !showPlay">
             <img :src="playlist[playCurrentIndex].al.picUrl">
             <div class="content">
                 <div class="title">{{ playlist[playCurrentIndex].al.name }}</div>
@@ -12,20 +12,26 @@
             <i  v-show="!pause"  class="iconfont icon-zanting" @click="play"></i>
             <i class="iconfont icon-24gl-playlistHeart"></i>
         </div>
+        <play-music v-show="showPlay" :playDetail="playlist[playCurrentIndex]"></play-music>
         <audio ref="audio" :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"></audio>
     </div>
 </template>
 
 <script>
  
-import { mapState,mapMutations } from 'vuex'
+import { mapState } from 'vuex'
+import playMusic from '@/components/playMusic.vue'
 export default{
     computed:{
         ...mapState(['playlist','playCurrentIndex'])
     },
+    components:{
+        playMusic
+    },
     data(){
         return{
-            pause: true
+            pause: true,
+            showPlay: false
         }
     },
     methods:{
