@@ -24,9 +24,9 @@ export default{
 /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
   font-family: 'iconfont';  /* Project id 3254442 */
-  src: url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.woff2?t=1684737012830') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.woff?t=1684737012830') format('woff'),
-       url('//at.alicdn.com/t/c/font_3254442_nmwd0m6u039.ttf?t=1684737012830') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3254442_rogq869f7td.woff2?t=1685004228772') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3254442_rogq869f7td.woff?t=1685004228772') format('woff'),
+       url('//at.alicdn.com/t/c/font_3254442_rogq869f7td.ttf?t=1685004228772') format('truetype');
 }
 
 .iconfont {
@@ -106,5 +106,17 @@ export default{
 
 .icon-24gl-playlistHeart:before {
   content: "\ea6f";
+}
+
+.icon-24gl-repeat2:before {
+  content: "\ea75";
+}
+
+.icon-shangyishoushangyige:before {
+  content: "\e78a";
+}
+
+.icon-xiayigexiayishou:before {
+  content: "\e7a5";
 }
 </style>

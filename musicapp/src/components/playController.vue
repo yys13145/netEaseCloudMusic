@@ -12,7 +12,7 @@
             <i  v-show="!pause"  class="iconfont icon-zanting" @click="play"></i>
             <i class="iconfont icon-24gl-playlistHeart"></i>
         </div>
-        <play-music @back="showPlay=false" v-show="showPlay" :playDetail="playlist[playCurrentIndex]"></play-music>
+        <play-music @back="showPlay=false" v-show="showPlay" :pause="pause" :play="play" :playDetail="playlist[playCurrentIndex]"></play-music>
         <audio ref="audio" :src="`https://music.163.com/song/media/outer/url?id=${playlist[playCurrentIndex].id}.mp3`"></audio>
     </div>
 </template>

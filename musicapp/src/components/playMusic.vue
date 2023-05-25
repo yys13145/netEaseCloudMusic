@@ -15,19 +15,26 @@
             </div> 
         </div>
         <div class="playContent">
-            <img class="needle" src="@/assets/needle-ab.png">
+            <img class="needle" :class="{active:!pause}" src="@/assets/needle-ab.png">
             <img class="disc" src="@/assets/disc-plus.png">
             <img class="playImg" :src="playDetail.al.picUrl">
         </div>
         <div class="playLyric"></div>
         <div class="progress"></div>
-        <div class="playFooter"></div>
+        <div class="playFooter">
+            <i class="iconfont icon-24gl-repeat2"></i>
+            <i class="iconfont icon-shangyishoushangyige"></i>
+            <i v-show="pause" class="iconfont icon-bofang" style="font-size: 40px;" @click="play"></i>
+            <i v-show="!pause" class="iconfont icon-zanting" style="font-size: 40px;" @click="play"></i>
+            <i class="iconfont icon-xiayigexiayishou"></i>
+            <i class="iconfont icon-24gl-playlistHeart"></i>
+        </div>
     </div>
 </template>
 
 <script>
 export default{
-    props:['playDetail']
+    props:['playDetail','pause','play']
 }
 </script>
 
@@ -74,16 +81,6 @@ export default{
         height: 7.5rem;
         top: 1.5rem;
         left: 0;
-        .needle .active{
-            width: 2.5rem;
-            height: auto;
-            position: absolute;
-            left: 3.5rem;
-            transform-origin: 0.3rem 0;
-            transform: rotate(20deg);
-            transition: all 1s;
-            z-index: 10;
-        }
         .needle{
             width: 2.5rem;
             height: auto;
@@ -91,6 +88,16 @@ export default{
             left: 3.5rem;
             transform-origin: 0.3rem 0;
             transform: rotate(-10deg);
+            transition: all 1s;
+            z-index: 10;
+        }
+        .needle.active{
+            width: 2.5rem;
+            height: auto;
+            position: absolute;
+            left: 3.5rem;
+            transform-origin: 0.3rem 0;
+            transform: rotate(5deg);
             transition: all 1s;
             z-index: 10;
         }
@@ -108,6 +115,21 @@ export default{
             position: absolute;
             left: calc(50% - 1.7rem);
             top: 3.55rem;
+        }
+    }
+    .playFooter{
+        width: 7.5rem;
+        height: 1.5rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.4rem;
+        .iconfont{
+            font-size: 32px;
+            color: #fff;
         }
     }
 }
