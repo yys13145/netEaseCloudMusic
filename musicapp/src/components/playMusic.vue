@@ -14,7 +14,11 @@
                 <i class="iconfont icon-fenxiang"></i>
             </div> 
         </div>
-        <div class="playContent"></div>
+        <div class="playContent">
+            <img class="needle" src="@/assets/needle-ab.png">
+            <img class="disc" src="@/assets/disc-plus.png">
+            <img class="playImg" :src="playDetail.al.picUrl">
+        </div>
         <div class="playLyric"></div>
         <div class="progress"></div>
         <div class="playFooter"></div>
@@ -62,6 +66,48 @@ export default{
         }
         marquee{
             width: 5rem;
+        }
+    }
+    .playContent{
+        position: absolute;
+        width: 7.5rem;
+        height: 7.5rem;
+        top: 1.5rem;
+        left: 0;
+        .needle .active{
+            width: 2.5rem;
+            height: auto;
+            position: absolute;
+            left: 3.5rem;
+            transform-origin: 0.3rem 0;
+            transform: rotate(20deg);
+            transition: all 1s;
+            z-index: 10;
+        }
+        .needle{
+            width: 2.5rem;
+            height: auto;
+            position: absolute;
+            left: 3.5rem;
+            transform-origin: 0.3rem 0;
+            transform: rotate(-10deg);
+            transition: all 1s;
+            z-index: 10;
+        }
+        .disc{
+            width: 5.5rem;
+            height: auto;
+            position: absolute;
+            left: calc(50% - 2.75rem);
+            top: 2.5rem;
+        }
+        .playImg{
+            width: 3.4rem;
+            height: 3.4rem;
+            border-radius: 1.7rem;
+            position: absolute;
+            left: calc(50% - 1.7rem);
+            top: 3.55rem;
         }
     }
 }
