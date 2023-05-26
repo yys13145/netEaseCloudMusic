@@ -21,6 +21,8 @@
  
 import { mapState } from 'vuex'
 import playMusic from '@/components/playMusic.vue'
+import store from '@/store/index.js'
+
 export default{
     computed:{
         ...mapState(['playlist','playCurrentIndex'])
@@ -33,6 +35,10 @@ export default{
             pause: true,
             showPlay: false
         }
+    },
+    mounted(){
+        console.log(this.playlist[this.playCurrentIndex])
+        this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id})
     },
     methods:{
         play(){

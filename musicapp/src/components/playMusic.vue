@@ -14,12 +14,14 @@
                 <i class="iconfont icon-fenxiang"></i>
             </div> 
         </div>
-        <div class="playContent">
+        <div class="playContent" v-show="!isShowLyric">
             <img class="needle" :class="{active:!pause}" src="@/assets/needle-ab.png">
             <img class="disc" src="@/assets/disc-plus.png">
             <img class="playImg" :src="playDetail.al.picUrl">
         </div>
-        <div class="playLyric"></div>
+        <div class="playLyric" v-show="isShowLyric">
+            <p v-for="(item,i) in  $store.getters.lyricList" :key="i">{{item.lyric}}</p>
+        </div>
         <div class="progress"></div>
         <div class="playFooter">
             <i class="iconfont icon-24gl-repeat2"></i>
@@ -33,8 +35,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default{
-    props:['playDetail','pause','play']
+    props:['playDetail','pause','play'],
+    data(){
+        return{
+            isShowLyric: true
+        }
+    },
+    computed:{
+        ...mapState(['lyric']),
+    }
 }
 </script>
 
@@ -131,6 +142,16 @@ export default{
             font-size: 32px;
             color: #fff;
         }
+    }
+    .playLyric{
+        position: absolute;
+        width: 7.5rem;
+        height: 8rem;
+        top: calc(50% - 4rem);
+        left: 0;
+        overflow: scroll;
+        text-align: center;
+        color: #fff;
     }
 }
 </style>

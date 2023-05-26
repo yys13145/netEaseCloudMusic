@@ -27,7 +27,6 @@ export default {
         onMounted(async()=>{
             let id = route.query.id; 
             let res = await getMusicDetail(id);
-            console.log(res);
             store.commit('setPlaylist',res.data.playlist.tracks)
             state.playlist = res.data.playlist;
         });

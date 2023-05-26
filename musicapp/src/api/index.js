@@ -15,3 +15,8 @@ export function getMusicList(limit=10){
 export function getMusicDetail(id){
     return axios.get(`${baseUrl}/playlist/detail?id=${id}`) 
 }
+
+// 获取歌词
+export function getMusicLyric(id){
+    return axios.get(`${baseUrl}/lyric?id=${id}`) 
+}
