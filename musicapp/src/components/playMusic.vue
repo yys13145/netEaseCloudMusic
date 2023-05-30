@@ -19,8 +19,8 @@
             <img class="disc" src="@/assets/disc-plus.png">
             <img class="playImg" :src="playDetail.al.picUrl">
         </div>
-        <div class="playLyric" v-show="isShowLyric">
-            <p v-for="(item,i) in  $store.getters.lyricList" :key="i">{{item.lyric}}</p>
+        <div class="playLyric" v-show="isShowLyric" ref="playLyric">
+            <p :class="{active:(currentTime*1000 >= item.pre && currentTime*1000 <item.time)}" v-for="(item,i) in  $store.getters.lyricList" :key="i">{{item.lyric}}</p>
         </div>
         <div class="progress"></div>
         <div class="playFooter">
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { watch } from 'vue'
 import { mapState } from 'vuex'
 export default{
     props:['playDetail','pause','play'],
@@ -44,7 +45,13 @@ export default{
         }
     },
     computed:{
-        ...mapState(['lyric']),
+        ...mapState(['lyric','currentTime']),
+    },
+    watch:{
+        currentTime:function(){
+            let p = document.querySelector('p.active');
+            this.$refs.playLyric.scrollTop = p.offsetTop;
+        }
     }
 }
 </script>
@@ -152,6 +159,9 @@ export default{
         overflow: scroll;
         text-align: center;
         color: #fff;
+        .active{
+            color: red;
+        }
     }
 }
 </style>

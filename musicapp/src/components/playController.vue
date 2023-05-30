@@ -38,17 +38,24 @@ export default{
     },
     mounted(){
         console.log(this.playlist[this.playCurrentIndex])
-        this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id})
+        this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});
     },
     methods:{
         play(){
             if(this.$refs.audio.paused){
                 this.$refs.audio.play();
                 this.pause = false;
+                this.updateTime();
             }else{
                 this.$refs.audio.pause();
                 this.pause = true;
+                clearInterval(this.$store.state.id);
             }
+        },
+        updateTime(){
+            this.$store.state.id = setInterval(()=>{
+                this.$store.commit('setCurrentTime',this.$refs.audio.currentTime)
+            },1000)
         }
     }
 }
