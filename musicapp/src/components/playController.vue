@@ -37,7 +37,9 @@ export default{
         }
     },
     mounted(){
-        console.log(this.playlist[this.playCurrentIndex])
+        this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});
+    },
+    updated(){
         this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});
     },
     methods:{

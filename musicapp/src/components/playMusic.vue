@@ -25,10 +25,10 @@
         <div class="progress"></div>
         <div class="playFooter">
             <i class="iconfont icon-24gl-repeat2"></i>
-            <i class="iconfont icon-shangyishoushangyige"></i>
+            <i class="iconfont icon-shangyishoushangyige" @click="goPlay(-1)"></i>
             <i v-show="pause" class="iconfont icon-bofang" style="font-size: 40px;" @click="play"></i>
             <i v-show="!pause" class="iconfont icon-zanting" style="font-size: 40px;" @click="play"></i>
-            <i class="iconfont icon-xiayigexiayishou"></i>
+            <i class="iconfont icon-xiayigexiayishou" @click="goPlay(1)"></i>
             <i class="iconfont icon-24gl-playlistHeart"></i>
         </div>
     </div>
@@ -45,7 +45,18 @@ export default{
         }
     },
     computed:{
-        ...mapState(['lyric','currentTime']),
+        ...mapState(['lyric','currentTime','playCurrentIndex','playlist']),
+    },
+    methods:{
+        goPlay(num){
+            let index = this.playCurrentIndex + num;
+            if(index < 0){
+                index = this.playlist.length - 1;
+            }else if(index == this.playlist.length){
+                index = 0;
+            }
+            this.$store.commit('setPlayCurrentIndex',index)
+        },
     },
     watch:{
         currentTime:function(){

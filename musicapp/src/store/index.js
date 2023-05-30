@@ -15,7 +15,7 @@ export default createStore({
         let min = item.slice(1,3);
         let sencond = item.slice(4,6);
         let mill = item.slice(7,10);
-        let lyric = item.slice(10,item.length);
+        let lyric = item.slice(11,item.length);
         let time = parseInt(mill) + parseInt(sencond)*1000 + parseInt(min)*60*1000;
 
         return { min,sencond,mill,lyric,time }
