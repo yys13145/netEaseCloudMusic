@@ -10,7 +10,7 @@
       <span class="navBtn">视频</span>
     </div>
     <div class="topRight">
-      <i class="iconfont icon-sousuo"></i>
+      <i class="iconfont icon-sousuo" @click="$router.push('/searchview')"></i>
     </div>
   </div>
 </template>

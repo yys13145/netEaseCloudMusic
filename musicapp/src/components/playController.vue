@@ -37,7 +37,7 @@ export default{
         }
     },
     mounted(){
-        this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});
+        // this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});
     },
     updated(){
         this.$store.dispatch('reqLyric',{id:this.playlist[this.playCurrentIndex].id});

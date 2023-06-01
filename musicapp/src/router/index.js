@@ -19,6 +19,11 @@ const routes = [
     path: '/listview',
     name: 'listview',
     component: () => import('../views/ListView.vue')
+  },
+  {
+    path: '/searchview',
+    name: 'searchview',
+    component: () => import('../views/Search.vue')
   }
 ]
 
