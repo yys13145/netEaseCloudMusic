@@ -20,3 +20,8 @@ export function getMusicDetail(id){
 export function getMusicLyric(id){
     return axios.get(`${baseUrl}/lyric?id=${id}`) 
 }
+
+// 搜素
+export function search(keywords){
+    return axios.get(`${baseUrl}/search?keywords=${keywords}`) 
+}
