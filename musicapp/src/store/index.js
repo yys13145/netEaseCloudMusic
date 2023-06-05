@@ -7,7 +7,10 @@ export default createStore({
     playCurrentIndex:0,
     lyric:'',
     currentTime: 0,
-    intervalId: 0
+    intervalId: 0,
+    user:{
+      isLogin: false
+    }
   },
   getters:{
     lyricList: function(state){
