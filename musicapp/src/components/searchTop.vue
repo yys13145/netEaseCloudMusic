@@ -12,7 +12,7 @@
         <div class="history" v-show="!playlist.length">
             <div class="historyLeft">历史</div>
             <div class="historyRight">
-                <div class="item" v-for="item in keywordList" :key="item">{{ item }}</div>
+                <div class="item" v-for="item in keywordList" :key="item" @click="historySearch(item)">{{ item }}</div>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
                         </div> 
                     </div>
                     <div class="right">
-                        <i class="iconfont icon-bofang" @click="setPlayCurrentIndex(index)"></i>
+                        <i class="iconfont icon-bofang" @click="setPlay(item)"></i>
                         <i class="iconfont icon-androidgengduo"></i>
                     </div>
                 </div>
@@ -70,6 +70,16 @@ export default {
             let result = await search(this.keyword);
             console.log(result);
             this.playlist = result.data.result.songs;
+        },
+        historySearch(item){
+            this.keyword = item;
+            this.add();
+        },
+        setPlay(item){
+            item.al = item.album;
+            item.al.picUrl = item.album.artist.img1v1Url;
+            this.$store.commit('pushPlaylist',item);
+            this.$store.commit('setPlayCurrentIndex', this.$store.state.playlist.length - 1);
         }
     }
 }
@@ -77,12 +87,16 @@ export default {
 <style lang="less" scoped>
 .searchTop{
     width: 7.5rem;
+    height: calc(100vh - 1.2rem);
     padding: 0 0.4rem;
     .searchTopNav{
         display: flex;
         align-items: center;
         width: 100%;
         height: 1.2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
         .iconfont{
             font-size: 28px;
             color: #000;
@@ -102,6 +116,7 @@ export default {
     } 
     .history{
         display: flex;
+        margin-top: 1.2rem;
         .historyLeft{
             width: 1rem;
             font-weight: 900;
@@ -128,7 +143,10 @@ export default {
         background: #fff;
         border-top-left-radius: 0.3rem;
         border-top-right-radius: 0.3rem;
-        margin-top: 0.4rem;
+        position: fixed;
+        top: 1.2rem;
+        bottom: 1.2rem;
+        overflow: scroll;
         .playlist-top{
             display: flex;
             justify-content: space-between;

@@ -36,6 +36,9 @@ export default createStore({
     setPlaylist:function(state,value){
       state.playlist = value;
     },
+    pushPlaylist:function(state,value){
+      state.playlist.push(value);
+    },
     setPlayCurrentIndex:function(state,value){
       state.playCurrentIndex = value;
     },
