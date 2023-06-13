@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { getMusicLyric } from '@/api/index.js'
+import { getMusicLyric,phoneLogin } from '@/api/index.js'
 
 export default createStore({
   state: {
@@ -51,11 +51,21 @@ export default createStore({
     setCurrentTime:function(state,value){
       state.currentTime = value;
     },
+    setUser:function(state,value){
+      state.user.isLogin = value;
+    },
   },
   actions: {
     async reqLyric(content,payload){
       let result = await getMusicLyric(payload.id);
       content.commit('setLyric',result.data.lrc.lyric);
+    },
+    async login(content,payload){
+      let result = await phoneLogin(payload.phone,payload.password);
+      if(result.data.code == 200){
+        content.commit('setUser',true);
+      }
+      return result;
     },
   },
   modules: {

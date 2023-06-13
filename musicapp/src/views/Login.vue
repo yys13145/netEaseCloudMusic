@@ -10,9 +10,9 @@
       </div> 
 
       <div class="content">
-        <input class="item" placeholder="请输入账号" v-model="name">
-        <input  class="item" placeholder="请输入密码" v-model="password">
-        <button  class="item" >登录</button>
+        <input class="item" placeholder="请输入账号/手机号" v-model="phone">
+        <input  class="item" type="password" placeholder="请输入密码" v-model="password">
+        <button  class="item" @click="loginByPhone()">登录</button>
       </div>
 
     </div>
@@ -22,13 +22,19 @@
 import { search } from '@/api/index.js'
 export default {
     data: function(){
-        return {
-          name: '',
-          password: ''
-        }
+      return {
+        phone: '',
+        password: ''
+      }
     },
     methods: {
-        
+      loginByPhone: async function(){
+        let res = this.$store.dispatch('login',{phone: this.phone,password: this.password});
+        console.log(res.data.code);
+        if(res.data.code == 200){
+          this.$router.push('/me')
+        }
+      }
     }
 }
 </script>

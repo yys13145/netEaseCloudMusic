@@ -21,7 +21,12 @@ export function getMusicLyric(id){
     return axios.get(`${baseUrl}/lyric?id=${id}`) 
 }
 
-// 搜素
+// 搜索
 export function search(keywords){
     return axios.get(`${baseUrl}/search?keywords=${keywords}`) 
+}
+
+// 手机登录
+export function phoneLogin(phone,password){
+    return axios.get(`${baseUrl}/login/cellphone?phone=${phone}&password=${password}`) 
 }
